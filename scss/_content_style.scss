@@ -1,13 +1,289 @@
 .bas-des {
   .main_content {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     .sec-hero {
       background-image: url("../photo/content-one.png");
       width: 100%;
-      height: 580px;
-      background-position: bottom;
-      object-fit: cover;
+      height: 643px;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 111111;
+      position: relative;
+      overflow: hidden;
+
+      // الشكل الدائري
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.199); /* لون الإضاءة */
+        opacity: 0.2; /* ضبط الشفافية حسب الحاجة */
+        animation: randomCircleAnimation 8s ease-in-out infinite;
+      }
+
+      // الشكل المربع
+      .square {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.151); /* لون الإضاءة */
+        opacity: 0.2; /* ضبط الشفافية حسب الحاجة */
+        animation: randomSquareAnimation 6s ease-in-out infinite;
+      }
+
+      @keyframes randomCircleAnimation {
+        0% {
+          width: 50px;
+          height: 50px;
+          top: 20%;
+          left: 20%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.2;
+        }
+        25% {
+          width: 80px; /* حجم أكبر */
+          height: 80px;
+          top: 30%;
+          left: 60%;
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.2;
+        }
+        50% {
+          width: 60px; /* حجم وسط */
+          height: 60px;
+          top: 50%;
+          left: 40%;
+          transform: translate(-50%, -50%) scale(1.5);
+          opacity: 0.4; /* يصبح أكثر وضوحًا */
+        }
+        75% {
+          width: 70px; /* حجم مختلف */
+          height: 70px;
+          top: 70%;
+          left: 80%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.3;
+        }
+        100% {
+          width: 50px; /* العودة للحجم الأصلي */
+          height: 50px;
+          top: 20%;
+          left: 20%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.1;
+        }
+      }
+
+      @keyframes randomSquareAnimation {
+        0% {
+          width: 40px;
+          height: 40px;
+          top: 10%;
+          left: 10%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.4;
+        }
+        25% {
+          width: 70px; /* حجم أكبر */
+          height: 70px;
+          top: 30%;
+          left: 30%;
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.3;
+        }
+        50% {
+          width: 50px; /* حجم وسط */
+          height: 50px;
+          top: 60%;
+          left: 60%;
+          transform: translate(-50%, -50%) scale(1.5);
+          opacity: 0.2; /* يصبح أكثر وضوحًا */
+        }
+        75% {
+          width: 60px; /* حجم مختلف */
+          height: 60px;
+          top: 40%;
+          left: 80%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.2;
+        }
+        100% {
+          width: 40px; /* العودة للحجم الأصلي */
+          height: 40px;
+          top: 10%;
+          left: 10%;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.1;
+        }
+      }
+    }
+
+    // إضافة العناصر بشكل ديناميكي
+    .circle:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .circle:nth-child(2) {
+      animation-delay: 1s;
+    }
+    .circle:nth-child(3) {
+      animation-delay: 2s;
+    }
+    .circle:nth-child(4) {
+      animation-delay: 3s;
+    }
+
+    .square:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .square:nth-child(2) {
+      animation-delay: 1s;
+    }
+    .square:nth-child(3) {
+      animation-delay: 2s;
+    }
+    .square:nth-child(4) {
+      animation-delay: 3s;
+    }
+
+    .content-hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+
+      .text-hero {
+        width: 50%;
+        h4 {
+          color: white;
+          font-family: "bold";
+          font-size: 2.5rem;
+        }
+        p {
+          color: #dbdbdb;
+          font-family: "regular";
+          font-size: 1rem;
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
+      .img-hero {
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .three-way {
+      .headers {
+        h4 {
+          text-align: center;
+          font-family: "bold";
+          span {
+            border-bottom: 2px solid var(--two-color);
+          }
+        }
+      }
+      .card-threeway {
+        margin: 3rem 2rem;
+        background: var(--nine-color);
+        padding: 0.5rem;
+        border-radius: 8px;
+
+        .img {
+          width: 100%;
+          margin-top: -2.3rem;
+
+          img {
+            width: 95%;
+            height: 288px;
+            animation: upDown 3s ease-in-out infinite; // Add animation here
+          }
+        }
+
+        .text {
+          h4 {
+            font-family: "bold";
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 0.8rem;
+          }
+          p {
+            display: -webkit-box;
+            -webkit-line-clamp: 3; // Limit to 3 lines
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; // Add "..." for overflow text
+            font-family: "regular";
+            color: #636363;
+            font-size: 0.7rem;
+            &.expanded {
+              -webkit-line-clamp: unset; // Show all text when expanded
+              overflow: visible;
+            }
+          }
+          button {
+            background-color: var(--two-color);
+            color: #fff;
+            font-family: "regular";
+            display: block;
+            margin-inline-start: auto;
+            border: 0;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.6rem;
+            border-radius: 4px;
+          }
+        }
+      }
+
+      // Keyframes for up-down animation
+      @keyframes upDown {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px); // Moves the image up by 10px
+        }
+      }
+    }
+    .offers-descount {
+      background-image: linear-gradient(
+        to bottom right,
+        var(--six-color),
+        var(--two-color)
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: 437px;
+      margin-bottom: 2rem;
+      .allof {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .img {
+          width: 50%;
+          img {
+            width: 87%;
+          }
+        }
+        .text {
+          width: 50%;
+          h4 {
+            font-family: "bold";
+            color: white;
+            font-size: 1.8rem;
+          }
+          p {
+            font-family: "regular";
+            color: #dbdbdb;
+            font-size: 1rem;
+            width: 91%;
+          }
+        }
+      }
     }
   }
 }

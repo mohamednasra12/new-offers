@@ -1,11 +1,20 @@
-document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    const navbarCollapse = document.getElementById("navbarSupportedContent");
-    if (navbarCollapse.classList.contains("show")) {
-      navbarCollapse.classList.remove("show");
-    }
-  });
-});
+// // إغلاق القائمة الجانبية عند النقر على أي رابط داخلها
+// document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+//   link.addEventListener("click", () => {
+//     const navbarCollapse = document.getElementById("navbarSupportedContent");
+
+//     // تحقق مما إذا كانت القائمة مفتوحة
+//     if (navbarCollapse.classList.contains("show")) {
+//       // استخدم Bootstrap Collapse API لإغلاق القائمة بشكل صحيح
+//       const collapse =
+//         bootstrap.Collapse.getInstance(navbarCollapse) ||
+//         new bootstrap.Collapse(navbarCollapse);
+//       collapse.hide();
+//     }
+//   });
+// });
+
+// تحديث المحتوى بناءً على اللغة المختارة
 function updateContent(lang) {
   if (lang === "ar") {
     document.body.style.display = "block";
@@ -24,6 +33,7 @@ function updateContent(lang) {
 document
   .getElementById("lang-en")
   .addEventListener("click", () => updateContent("en"));
+
 // الحدث لزر اللغة العربية
 document
   .getElementById("lang-ar")
@@ -32,28 +42,42 @@ document
 // تعيين اللغة الافتراضية
 updateContent("ar"); // أو "en" حسب اللغة الافتراضية التي تريدها
 
+// إضافة وإزالة فئة 'active' من روابط التنقل (Navbar)
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      // Remove 'active' class from all links
+      // إزالة 'active' من جميع الروابط
       navLinks.forEach((nav) => nav.classList.remove("active"));
-      // Add 'active' class to the clicked link
+      // إضافة 'active' للرابط الذي تم النقر عليه
       this.classList.add("active");
     });
   });
 });
-// اختيار جميع الروابط في الفوتر
+
+// إضافة وإزالة فئة 'active' من روابط الفوتر (Footer)
 const footerLinks = document.querySelectorAll(".footer-link");
 
-// إضافة حدث للنقر على كل رابط
 footerLinks.forEach((link) => {
   link.addEventListener("click", function () {
-    // إزالة الـ active class من جميع الروابط
+    // إزالة 'active' من جميع الروابط في الفوتر
     footerLinks.forEach((link) => link.classList.remove("active"));
 
-    // إضافة الـ active class للرابط الذي تم النقر عليه
+    // إضافة 'active' للرابط الذي تم النقر عليه
     this.classList.add("active");
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButtons = document.querySelectorAll("#toggle-btn");
+
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const textElement = this.previousElementSibling; // Get the <p> element before the button
+      textElement.classList.toggle("expanded"); // Toggle the 'expanded' class
+      this.textContent = textElement.classList.contains("expanded")
+        ? "عرض أقل"
+        : "عرض المزيد"; // Change button text based on state
+    });
   });
 });

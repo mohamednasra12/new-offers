@@ -27,7 +27,7 @@ $direction: rtl !important;
 
 body {
   direction: $direction !important;
-  text-align: if($direction == rtl, right, left) ;
+  text-align: if($direction == rtl, right, left);
 }
 :root {
   --one-color: #3b3b3b;
