@@ -23,10 +23,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-$direction: rtl !important;
+$direction: rtl ;
 
 body {
-  direction: $direction !important;
+  direction: $direction ;
   text-align: if($direction == rtl, right, left);
 }
 :root {
