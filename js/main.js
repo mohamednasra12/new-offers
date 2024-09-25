@@ -81,3 +81,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+window.onscroll = function () {
+  const scrollToTopButton = document.getElementById("scrollToTop");
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    scrollToTopButton.style.display = "flex";
+  } else {
+    scrollToTopButton.style.display = "none";
+  }
+};
+
+document.getElementById("scrollToTop").onclick = function (event) {
+  event.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
